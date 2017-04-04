@@ -23,10 +23,16 @@ public class Main {
         Gson mapper = new Gson();
         Submission[] subs = mapper.fromJson(bodyText, Submission[].class);
 
-        System.out.println("Oliot:");
+        System.out.println("opiskelijanumero: " + subs[0].getStudent_number());
+        Integer hours = 0;
+        Integer exercises = 0;
         for (Submission submission : subs) {
+
             System.out.println(submission);
+            exercises += submission.amountOfExercises();
+            hours += submission.getHours();
         }
+        System.out.println("yhteensä: " + exercises + " tehtävää " + hours + " tuntia");
 
     }
 }
