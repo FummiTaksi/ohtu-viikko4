@@ -17,6 +17,7 @@ public class Submission {
     private boolean a9;
     private boolean a10;
     private boolean a11;
+    private boolean a12;
     private ArrayList<Integer> exercises = new ArrayList();
 
 
@@ -169,7 +170,16 @@ public class Submission {
       return a11;
     }
 
+    public void setA12(boolean a1) {
+      this.a12 = a1;
+    }
 
+    public boolean getA12() {
+      if (a12) {
+        exercises.add(12);
+      }
+      return a12;
+    }
 
   public String doneExercises() {
     String all = "";
@@ -201,6 +211,7 @@ public class Submission {
       getA9();
       getA10();
       getA11();
+      getA12();
         return "viikko " + getWeek() +  ": tehtyjä tehtäviä yhteensä: " + amountOfExercises() +
                ", aikaa kului " +   getHours() + ", tehdyt tehtävät " + doneExercises() ;
 
