@@ -19,6 +19,7 @@ public class Submission {
     private boolean a11;
     private boolean a12;
     private ArrayList<Integer> exercises = new ArrayList();
+    private Integer max = 0;
 
 
 
@@ -32,12 +33,10 @@ public class Submission {
     }
 
     public Integer getWeek() {
-      System.out.println("LOL");
       return week;
     }
 
     public void setWeek(Integer week) {
-      System.out.println("LOL");
       this.week = week;
     }
 
@@ -57,6 +56,7 @@ public class Submission {
       if (a1) {
         exercises.add(1);
       }
+      max++;
       return a1;
     }
 
@@ -68,6 +68,7 @@ public class Submission {
       if (a2) {
         exercises.add(2);
       }
+      max++;
       return a2;
     }
 
@@ -79,6 +80,7 @@ public class Submission {
       if (a3) {
         exercises.add(3);
       }
+      max++;
       return a3;
     }
 
@@ -90,6 +92,7 @@ public class Submission {
       if (a4) {
         exercises.add(4);
       }
+      max++;
       return a4;
     }
 
@@ -101,6 +104,7 @@ public class Submission {
       if (a5) {
         exercises.add(5);
       }
+      max++;
       return a5;
     }
 
@@ -112,6 +116,7 @@ public class Submission {
       if (a6) {
         exercises.add(6);
       }
+      max++;
       return a6;
     }
 
@@ -123,6 +128,7 @@ public class Submission {
       if (a7) {
         exercises.add(7);
       }
+      max++;
       return a7;
     }
 
@@ -134,6 +140,7 @@ public class Submission {
       if (a8) {
         exercises.add(8);
       }
+      max++;
       return a8;
     }
 
@@ -145,6 +152,7 @@ public class Submission {
       if (a9) {
         exercises.add(9);
       }
+      max++;
       return a9;
     }
 
@@ -156,6 +164,7 @@ public class Submission {
       if (a10) {
         exercises.add(10);
       }
+      max++;
       return a10;
     }
 
@@ -167,17 +176,23 @@ public class Submission {
       if (a11) {
         exercises.add(11);
       }
+      max++;
       return a11;
     }
 
-    public void setA12(boolean a1) {
-      this.a12 = a1;
+    public void setA12(boolean a12) {
+      if (a12 == null) {
+        System.out.println("JEEEE");
+      }
+      this.a12 = a12;
     }
 
     public boolean getA12() {
+      System.out.println(a12);
       if (a12) {
         exercises.add(12);
       }
+      max++;
       return a12;
     }
 
@@ -213,6 +228,7 @@ public class Submission {
       getA11();
       getA12();
         return "viikko " + getWeek() +  ": tehtyjä tehtäviä yhteensä: " + amountOfExercises() +
+                 " (maksimi " + max + ") " +
                ", aikaa kului " +   getHours() + ", tehdyt tehtävät " + doneExercises() ;
 
     }
