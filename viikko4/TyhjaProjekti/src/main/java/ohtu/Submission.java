@@ -19,14 +19,37 @@ public class Submission {
     private boolean a11;
     private boolean a12;
     private ArrayList<Integer> exercises = new ArrayList();
-    private Integer max = 0;
+    private Course course;
 
 
+    public void setCourse(Course course) {
+      System.out.println("LOOL");
+      this.course = course;
+    }
+
+    public Course getCourse() {
+      return course;
+    }
+
+    public Integer getMax() {
+      if (week == 1 ) {
+        return getCourse().getWeek1();
+      }
+      else if (week == 2) {
+        return course.getWeek2();
+      }
+      else if (week == 3) {
+        return course.getWeek3();
+      }
+      else if (week == 4) {
+        return course.getWeek4();
+      }
+      return -1;
+    }
 
     public String getStudent_number() {
         return student_number;
     }
-
 
     public void setStudent_number(String student_number) {
         this.student_number = student_number;
@@ -56,7 +79,6 @@ public class Submission {
       if (a1) {
         exercises.add(1);
       }
-      max++;
       return a1;
     }
 
@@ -68,7 +90,6 @@ public class Submission {
       if (a2) {
         exercises.add(2);
       }
-      max++;
       return a2;
     }
 
@@ -80,7 +101,6 @@ public class Submission {
       if (a3) {
         exercises.add(3);
       }
-      max++;
       return a3;
     }
 
@@ -92,7 +112,6 @@ public class Submission {
       if (a4) {
         exercises.add(4);
       }
-      max++;
       return a4;
     }
 
@@ -104,7 +123,6 @@ public class Submission {
       if (a5) {
         exercises.add(5);
       }
-      max++;
       return a5;
     }
 
@@ -116,7 +134,6 @@ public class Submission {
       if (a6) {
         exercises.add(6);
       }
-      max++;
       return a6;
     }
 
@@ -128,7 +145,6 @@ public class Submission {
       if (a7) {
         exercises.add(7);
       }
-      max++;
       return a7;
     }
 
@@ -140,7 +156,6 @@ public class Submission {
       if (a8) {
         exercises.add(8);
       }
-      max++;
       return a8;
     }
 
@@ -152,7 +167,6 @@ public class Submission {
       if (a9) {
         exercises.add(9);
       }
-      max++;
       return a9;
     }
 
@@ -164,7 +178,6 @@ public class Submission {
       if (a10) {
         exercises.add(10);
       }
-      max++;
       return a10;
     }
 
@@ -176,14 +189,11 @@ public class Submission {
       if (a11) {
         exercises.add(11);
       }
-      max++;
       return a11;
     }
 
     public void setA12(boolean a12) {
-      if (a12 == null) {
-        System.out.println("JEEEE");
-      }
+
       this.a12 = a12;
     }
 
@@ -192,7 +202,6 @@ public class Submission {
       if (a12) {
         exercises.add(12);
       }
-      max++;
       return a12;
     }
 
@@ -228,7 +237,7 @@ public class Submission {
       getA11();
       getA12();
         return "viikko " + getWeek() +  ": tehtyjä tehtäviä yhteensä: " + amountOfExercises() +
-                 " (maksimi " + max + ") " +
+                 " (maksimi " +  getMax() + ") " +
                ", aikaa kului " +   getHours() + ", tehdyt tehtävät " + doneExercises() ;
 
     }
