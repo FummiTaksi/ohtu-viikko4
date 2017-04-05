@@ -6,7 +6,7 @@ import org.junit.rules.ExternalResource;
 import spark.Spark;
 
 public class ServerRule extends ExternalResource {
-    
+
     private final int port;
 
     public ServerRule(int port) {
@@ -23,8 +23,13 @@ public class ServerRule extends ExternalResource {
     }
 
     @Override
+    protected void before() {
+      System.setProperty("webdriver.chrome.driver", "omistaja/Downloads/chromedriver");
+    }
+
+    @Override
     protected void after() {
         Spark.stop();
     }
-    
+
 }
