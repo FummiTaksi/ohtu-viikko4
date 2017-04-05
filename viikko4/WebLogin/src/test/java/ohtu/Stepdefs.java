@@ -22,6 +22,40 @@ public class Stepdefs {
         element.click();
     }
 
+    @Given("^new user is selected$")
+public void new_user_is_selected() throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    driver.get(baseUrl);
+    WebElement element = driver.findElement(By.linkText("register new user"));
+    element.click();
+}
+
+@Then("^user is registered$")
+public void user_is_registered() throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    pageHasContent("Welcome to Ohtu Application!");
+}
+
+@Then("^user is not created and error \"([^\"]*)\" is reported$")
+public void user_is_not_created_and_error_is_reported(String arg1) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    pageHasContent(arg1);
+}
+@When("^username \"([^\"]*)\" and password \"([^\"]*)\" and  confirmation \"([^\"]*)\" are given$")
+public void username_and_password_and_confirmation_are_given(String username, String password, String confirmation) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    WebElement element = driver.findElement(By.name("username"));
+    element.sendKeys(username);
+
+    element = driver.findElement(By.name("password"));
+    element.sendKeys(password);
+
+    element = driver.findElement(By.name("passwordConfirmation"));
+    element.sendKeys(confirmation);
+    element.submit();
+}
+
+
     @When("^username \"([^\"]*)\" and password \"([^\"]*)\" are given$")
     public void username_and_password_are_given(String username, String password) throws Throwable {
         WebElement element = driver.findElement(By.name("username"));
