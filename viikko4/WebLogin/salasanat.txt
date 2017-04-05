@@ -1,3 +1,6 @@
 pekka;akkep
 jukka;akkuj
 aleksi;salainen
+uusi;salasana
+uusilol;uusilol
+kayttaja;salasana

@@ -22,10 +22,10 @@ public class ServerRule extends ExternalResource {
         Main.main(null);
     }
 
-    @Override
-    protected void before() {
-      System.setProperty("webdriver.chrome.driver", "omistaja/Downloads/chromedriver");
-    }
+    //@Override
+    //protected void before() {
+      //System.setProperty("webdriver.chrome.driver", "/chromedriver");
+    //}
 
     @Override
     protected void after() {
