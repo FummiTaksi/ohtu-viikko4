@@ -12,7 +12,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 public class Stepdefs {
-    WebDriver driver = new HtmlUnitDriver();
+
+    WebDriver driver = new ChromeDriver();
     String baseUrl = "http://localhost:4567";
 
     @Given("^login is selected$")
@@ -21,6 +22,40 @@ public class Stepdefs {
         WebElement element = driver.findElement(By.linkText("login"));
         element.click();
     }
+
+    @Given("^user with username \"([^\"]*)\" with password \"([^\"]*)\" is succesfully created$")
+public void user_with_username_with_password_is_succesfully_created(String username, String password) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    driver.get(baseUrl);
+    WebElement element = driver.findElement(By.linkText("register new user"));
+    element.click();
+    element = driver.findElement(By.name("username"));
+    element.sendKeys(username);
+
+    element = driver.findElement(By.name("password"));
+    element.sendKeys(password);
+
+    element = driver.findElement(By.name("passwordConfirmation"));
+    element.sendKeys(password);
+    element.submit();
+}
+
+@Given("^user with username \"([^\"]*)\" and password \"([^\"]*)\" is unsuccesfully created$")
+public void user_with_username_and_password_is_unsuccesfully_created(String username, String password) throws Throwable {
+    // Write code here that turns the phrase above into concrete actions
+    driver.get(baseUrl);
+    WebElement element = driver.findElement(By.linkText("register new user"));
+    element.click();
+    element = driver.findElement(By.name("username"));
+    element.sendKeys(username);
+
+    element = driver.findElement(By.name("password"));
+    element.sendKeys(password);
+
+    element = driver.findElement(By.name("passwordConfirmation"));
+    element.sendKeys(password);
+    element.submit();
+}
 
     @Given("^new user is selected$")
 public void new_user_is_selected() throws Throwable {

@@ -32,3 +32,15 @@ Feature: A new user account can be created if a proper unused username and passw
         Given new user is selected
         When  username "uusi" and password "salasana1" and  confirmation "kukkaruukku5" are given
         Then user is not created and error "password and password confirmation do not match" is reported
+
+        Scenario: user can login with succesfully generated account
+        Given user with username "liisa" with password "salainen1" is succesfully created
+        And   login is selected
+        When  username "liisa" and password "salainen1" are given
+        Then  user is logged in
+
+        Scenario: user can not login with account that is not succesfully created
+        Given user with username "aa" and password "bad" is unsuccesfully created
+        And   login is selected
+        When  username "aa" and password "bad" are given
+        Then  user is not logged in and error message is given
