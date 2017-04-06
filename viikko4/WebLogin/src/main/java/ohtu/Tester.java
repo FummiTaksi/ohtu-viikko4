@@ -14,7 +14,7 @@ public class Tester {
        logIn("pekka","väärä"); //login with correct username, wrong password
        logIn("eiole","eiole"); //login with username that doesn't exist
        register("uusi","salasana","salasana");
-       registerAndLogOut("kayttaja","salasana"); 
+       registerAndLogOut("kayttaja","salasana");
 
     }
 
@@ -25,7 +25,8 @@ public class Tester {
     }
 
     public static void logIn(String username, String password) {
-      WebDriver driver = new HtmlUnitDriver();
+      System.setProperty("webdriver.chrome.driver", "/Users/omistaja/Downloads/chromedriver");
+      WebDriver driver = new ChromeDriver();
 
       driver.get("http://localhost:4567");
 
@@ -55,7 +56,7 @@ public class Tester {
     }
 
     public static void register(String username, String password, String passwordConfirmation) {
-      WebDriver driver = new HtmlUnitDriver();
+      WebDriver driver = new ChromeDriver();
 
       driver.get("http://localhost:4567");
 
@@ -82,7 +83,7 @@ public class Tester {
     }
 
     public static void registerAndLogOut(String username,String password) {
-      WebDriver driver = new HtmlUnitDriver();
+      WebDriver driver = new ChromeDriver();
 
       driver.get("http://localhost:4567");
 
